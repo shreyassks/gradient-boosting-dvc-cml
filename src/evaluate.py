@@ -5,6 +5,10 @@ import numpy as np
 import pandas as pd
 from learning_curves import deviance, feature_importance
 from data_split import load_data
+import yaml
+
+params = yaml.safe_load(open("params.yaml"))["training"]
+n_estimators = params["n_est"]
 
 
 def evaluate():
@@ -18,7 +22,7 @@ def evaluate():
 
     model = pickle.load(open("data/gbrt_model.pkl", "rb"))
 
-    fig2 = deviance(model, x_te_scale, y_test)
+    fig2 = deviance(model, x_te_scale, y_test, n_estimators)
     fig2.savefig("deviance.png")
 
     _, cols = load_data()

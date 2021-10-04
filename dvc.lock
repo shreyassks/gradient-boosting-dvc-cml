@@ -7,8 +7,8 @@ stages:
       md5: b20c8cf632976544627b454eec4569cd
       size: 333768
     - path: src/data_split.py
-      md5: f478a49009e3e370db3d2994b5ff2a6d
-      size: 1060
+      md5: d87f245593aebcea75023220c0f1cd7e
+      size: 1059
     params:
       params.yaml:
         data-split.seed: 42
@@ -55,28 +55,28 @@ stages:
       md5: c9dee1bc1761b14c472e6b107ba8eba1
       size: 728
     - path: src/training.py
-      md5: 379e97c62e853c47cb76c4070fac3b06
-      size: 1836
+      md5: 0f4569babb912f8f4fc65b96a5b7d1f1
+      size: 1932
     params:
       params.yaml:
         training.lr: 0.01
         training.m_depth: 4
         training.min_leaf: 5
         training.min_split: 6
-        training.n_est: 500
+        training.n_est: 100
     outs:
     - path: data/gbrt_model.pkl
-      md5: 0dadf6128f31d487e4be7b33baa0e161
-      size: 922670
+      md5: 5bc3bd2c409dfc666ba748640d13c4d8
+      size: 216793
     - path: learning_curve.png
-      md5: 1bef88c17d8034cbee55adc47757ed73
-      size: 81152
+      md5: 4d2c99758ed4fe9e66ebb2f76593225d
+      size: 92694
   evaluate:
     cmd: python3 src/evaluate.py
     deps:
     - path: data/gbrt_model.pkl
-      md5: 0dadf6128f31d487e4be7b33baa0e161
-      size: 922670
+      md5: 5bc3bd2c409dfc666ba748640d13c4d8
+      size: 216793
     - path: data/processed_data/x_test.npy
       md5: 2d112d60d739d98a1c38f2ecaa3a575c
       size: 23424
@@ -87,18 +87,18 @@ stages:
       md5: c9dee1bc1761b14c472e6b107ba8eba1
       size: 728
     - path: src/evaluate.py
-      md5: 1a2c13421538e50f92b1bda23d9e4c08
-      size: 1243
+      md5: c84fbe566d283899be43e52393cb4e2e
+      size: 1358
     outs:
     - path: data/prediction.csv
-      md5: fe61dda0b918e0ef6f8d13577ca0d38a
-      size: 13225
+      md5: 1dff4b35e4eefed5cf5d29389c22a1d2
+      size: 13258
     - path: deviance.png
-      md5: 0f6aebc39ad5d2fa4fdd29fcad829218
-      size: 32921
+      md5: ae291cf58bce4d84ad09c1255cf4461d
+      size: 34882
     - path: feature_importance.png
-      md5: 3150a3af14a9b9375f02d88f188d36a1
-      size: 44463
+      md5: 01829713fd7d5ddcea0225f6d1f28c93
+      size: 45914
     - path: scores.json
-      md5: c9ce82bc23ff2cb8877a0ffdcad1f825
-      size: 63
+      md5: 9e037c8eb902ebd4dba0adbed6eeef13
+      size: 64

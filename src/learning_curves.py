@@ -60,7 +60,7 @@ def plot_learning_curve(estimator, title, X, y, axes=None, ylim=None, cv=None,
     return plt
 
 
-def deviance(model, x, y, n_estimators=500):
+def deviance(model, x, y, n_estimators):
     test_score = np.zeros((n_estimators,), dtype=np.float64)
     for i, y_pred in enumerate(model.staged_predict(x)):
         test_score[i] = model.loss_(y, y_pred)

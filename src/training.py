@@ -7,6 +7,8 @@ from sklearn.model_selection import KFold
 import numpy as np
 import pickle
 import yaml
+import random
+import string
 
 params = yaml.safe_load(open("params.yaml"))["training"]
 n_estimators = params["n_est"]
@@ -44,8 +46,9 @@ def training():
     kfold = KFold(n_splits=10)
     fig1 = plot_learning_curve(model, title, x_tr_scale, y_train, cv=kfold, n_jobs=2)
     fig1.savefig("learning_curve.png")
+    # rand = ''.join(random.choices(string.ascii_uppercase + string.digits, k=4))
 
-    with open("data/gbrt_model.pkl", "wb") as x_f:
+    with open(f"data/gbrt_model.pkl", "wb") as x_f:
         pickle.dump(model, x_f)
 
 
