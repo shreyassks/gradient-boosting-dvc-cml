@@ -7,7 +7,6 @@ from sklearn.model_selection import KFold
 import numpy as np
 import pickle
 import yaml
-import dvclive
 
 params = yaml.safe_load(open("params.yaml"))["training"]
 n_estimators = params["n_est"]
