@@ -1,6 +1,14 @@
 name: Continuous Machine learning
 
-on: [push]
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - branch-shreyas
 
 jobs:
   run:
@@ -15,7 +23,7 @@ jobs:
 
       - uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: '3.7.5'
 
       - name: cml
         env:
